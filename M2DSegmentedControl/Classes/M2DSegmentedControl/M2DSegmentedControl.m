@@ -169,6 +169,13 @@ CGFloat badgeSize = 20;
 	view.title = title;
 }
 
+- (void)badgeViewsHidden:(BOOL)hidden
+{
+	[self.badgeViews enumerateKeysAndObjectsUsingBlock:^(NSNumber * _Nonnull key, M2DSegmentedControlBadgeView * _Nonnull obj, BOOL * _Nonnull stop) {
+		obj.hidden = hidden;
+	}];
+}
+
 - (void)valueChanged:(id)sender
 {
 	[self.badgeViews enumerateKeysAndObjectsUsingBlock:^(NSNumber * _Nonnull key, M2DSegmentedControlBadgeView * _Nonnull obj, BOOL * _Nonnull stop) {

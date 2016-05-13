@@ -36,5 +36,6 @@ typedef NS_ENUM(NSUInteger, M2DSegmentedControlBadgeAlignment) {
 @property (nonatomic, strong) UIColor *badgeTextColor;
 
 - (void)addBadgeViewWithTitle:(NSString *)title index:(NSInteger)index;
+- (void)badgeViewsHidden:(BOOL)hidden;
 
 @end
