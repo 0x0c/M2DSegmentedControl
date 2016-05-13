@@ -160,6 +160,7 @@ CGFloat badgeSize = 20;
 		[self setBadgeAlignmnet:self.badgeAlignmnet];
 		[self setBadgeTextColor:self.badgeTextColor];
 		[self setBadgeBorderColor:self.badgeBorderColor];
+		[self setBadgeBorderWidth:self.badgeBorderWidth];
 		[self setBadgeBackgroundColor:self.badgeBackgroundColor];
 		[self.superview addSubview:view];
 	}

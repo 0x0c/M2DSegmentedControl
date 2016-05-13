@@ -25,6 +25,8 @@
 	[self.view addSubview:segmentedControl];
 	[segmentedControl setSelectedSegmentIndex:0];
 	segmentedControl.badgeAlignmnet = M2DSegmentedControlBadgeAlignmentRight;
+	segmentedControl.badgeBorderColor = [UIColor whiteColor];
+	segmentedControl.badgeBorderWidth = 1;
 	[segmentedControl addBadgeViewWithTitle:@"hoge" index:0];
 }
 
