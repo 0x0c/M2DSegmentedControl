@@ -20,12 +20,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 	M2DSegmentedControl *segmentedControl = [[M2DSegmentedControl alloc] initWithItems:@[@"A", @"B", @"C"]];
-	segmentedControl.frame = CGRectMake(0, 0, 300, CGRectGetHeight(segmentedControl.frame));
+	segmentedControl.frame = CGRectMake(0, 0, 200, CGRectGetHeight(segmentedControl.frame));
 	segmentedControl.center = self.view.center;
 	[self.view addSubview:segmentedControl];
 	[segmentedControl addBadgeViewWithTitle:@"hoge" index:0];
-	[segmentedControl addBadgeViewWithTitle:@"huga" index:1];
-	segmentedControl.badgeAlignmnet = M2DSegmentedControlBadgeAlignmentRight;
 }
 
 - (void)didReceiveMemoryWarning

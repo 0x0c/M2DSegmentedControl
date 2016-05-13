@@ -43,8 +43,13 @@
 
 - (void)setTitle:(NSString *)title
 {
-	self.titleLabel.text = title;
-	[self sizeToFit];
+	if (self.titleLabel.text.length > 0) {
+		self.titleLabel.text = title;
+		[self sizeToFit];
+	}
+	else {
+		self.hidden = YES;
+	}
 }
 
 - (void)sizeToFit
