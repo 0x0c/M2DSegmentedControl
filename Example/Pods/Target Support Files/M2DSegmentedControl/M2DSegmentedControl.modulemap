@@ -1,0 +1,6 @@
+framework module M2DSegmentedControl {
+  umbrella header "M2DSegmentedControl-umbrella.h"
+
+  export *
+  module * { export * }
+}

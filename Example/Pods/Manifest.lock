@@ -1,0 +1,14 @@
+PODS:
+  - M2DSegmentedControl (0.1.0)
+
+DEPENDENCIES:
+  - M2DSegmentedControl (from `../`)
+
+EXTERNAL SOURCES:
+  M2DSegmentedControl:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  M2DSegmentedControl: df4f08ebda8d035563b396efa6af3ead3fd244e6
+
+COCOAPODS: 0.39.0

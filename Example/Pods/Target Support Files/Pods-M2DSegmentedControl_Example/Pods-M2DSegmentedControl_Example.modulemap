@@ -1,0 +1,6 @@
+framework module Pods_M2DSegmentedControl_Example {
+  umbrella header "Pods-M2DSegmentedControl_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
