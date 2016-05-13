@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSUInteger, M2DSegmentedControlBadgeAlignment) {
-	M2DSegmentedControlBadgeAlignmentLeft,
-	M2DSegmentedControlBadgeAlignmentRight
+	M2DSegmentedControlBadgeAlignmentLeft = 0,
+	M2DSegmentedControlBadgeAlignmentRight = 1
 };
 
 @class M2DSegmentedControl;

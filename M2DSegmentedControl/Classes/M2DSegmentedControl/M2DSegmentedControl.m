@@ -155,6 +155,7 @@
 		view = [[M2DSegmentedControlBadgeView alloc] initWithIndex:index title:title];
 		self.badgeViews[@(index)] = view;
 		view.segmentedControl = self;
+		view.badgeAlignmnet = self.badgeAlignmnet;
 		[self.superview addSubview:view];
 	}
 	
@@ -165,6 +166,7 @@
 {
 	[self.badgeViews enumerateKeysAndObjectsUsingBlock:^(NSNumber * _Nonnull key, M2DSegmentedControlBadgeView * _Nonnull obj, BOOL * _Nonnull stop) {
 		[self.superview addSubview:obj];
+		[obj sizeToFit];
 	}];
 }
 
