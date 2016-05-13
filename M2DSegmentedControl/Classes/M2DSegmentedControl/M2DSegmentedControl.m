@@ -56,7 +56,8 @@ CGFloat badgeSize = 20;
 {
 	[super sizeToFit];
 	[self.titleLabel sizeToFit];
-	self.frame = CGRectMake(0, 0, CGRectGetWidth(self.titleLabel.frame) + 10, CGRectGetHeight(self.frame));
+	CGFloat size = CGRectGetWidth(self.titleLabel.frame) > badgeSize ? CGRectGetWidth(self.titleLabel.frame) + 10 : badgeSize;
+	self.frame = CGRectMake(0, 0, size, badgeSize);
 	UISegmentedControl * _Nullable segmentedControl = (UISegmentedControl * _Nullable)self.segmentedControl;
 	if (segmentedControl) {
 		NSInteger offset = self.badgeAlignmnet == M2DSegmentedControlBadgeAlignmentLeft ? 0 : 1;
