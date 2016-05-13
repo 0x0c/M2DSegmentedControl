@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'M2DSegmentedControl_Example' do
+  pod 'M2DSegmentedControl', :path => '../'
+
+  target 'M2DSegmentedControl_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
