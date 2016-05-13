@@ -17,9 +17,11 @@
 
 @implementation M2DSegmentedControlBadgeView
 
+
+CGFloat badgeSize = 20;
 - (instancetype)initWithIndex:(NSInteger)index title:(NSString *)title
 {
-	self = [self initWithFrame:CGRectMake(-15 / 2.0 + index * 15, -15 / 2.0, 15, 15)];
+	self = [self initWithFrame:CGRectMake(-badgeSize / 2.0 + index * 15, -badgeSize / 2.0, badgeSize, badgeSize)];
 	self.index = index;
 	self.title = title;
 	
@@ -31,10 +33,8 @@
 	self = [super initWithFrame:frame];
 	if (self) {
 		self.layer.cornerRadius = CGRectGetWidth(frame) / 2.0;
-		self.backgroundColor = [UIColor redColor];
 		self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame))];
-		self.titleLabel.font = [UIFont systemFontOfSize:10];
-		self.titleLabel.textColor = [UIColor whiteColor];
+		self.titleLabel.font = [UIFont systemFontOfSize:13];
 		[self addSubview:self.titleLabel];
 	}
 	
@@ -102,6 +102,8 @@
 	if (self) {
 		self.badgeViews = [NSMutableDictionary new];
 		[self addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
+		[self setBadgeBackgroundColor:[UIColor redColor]];
+		[self setBadgeTextColor:[UIColor whiteColor]];
 	}
 	
 	return self;
@@ -155,7 +157,10 @@
 		view = [[M2DSegmentedControlBadgeView alloc] initWithIndex:index title:title];
 		self.badgeViews[@(index)] = view;
 		view.segmentedControl = self;
-		view.badgeAlignmnet = self.badgeAlignmnet;
+		[self setBadgeAlignmnet:self.badgeAlignmnet];
+		[self setBadgeTextColor:self.badgeTextColor];
+		[self setBadgeBorderColor:self.badgeBorderColor];
+		[self setBadgeBackgroundColor:self.badgeBackgroundColor];
 		[self.superview addSubview:view];
 	}
 	
