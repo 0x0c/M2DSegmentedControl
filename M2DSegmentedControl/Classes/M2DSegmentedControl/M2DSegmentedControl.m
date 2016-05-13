@@ -173,6 +173,7 @@ CGFloat badgeSize = 20;
 {
 	[self.badgeViews enumerateKeysAndObjectsUsingBlock:^(NSNumber * _Nonnull key, M2DSegmentedControlBadgeView * _Nonnull obj, BOOL * _Nonnull stop) {
 		obj.hidden = hidden;
+		[obj sizeToFit];
 	}];
 }
 
