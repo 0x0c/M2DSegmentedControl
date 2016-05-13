@@ -13,8 +13,11 @@ typedef NS_ENUM(NSUInteger, M2DSegmentedControlBadgeAlignment) {
 	M2DSegmentedControlBadgeAlignmentRight
 };
 
+@class M2DSegmentedControl;
+
 @interface M2DSegmentedControlBadgeView : UIView
 
+@property (nonatomic, weak) M2DSegmentedControl *segmentedControl;
 @property (nonatomic, readonly) NSInteger index;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) UIColor *textColor;

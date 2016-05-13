@@ -43,8 +43,8 @@
 
 - (void)setTitle:(NSString *)title
 {
+	self.titleLabel.text = title;
 	if (self.titleLabel.text.length > 0) {
-		self.titleLabel.text = title;
 		[self sizeToFit];
 	}
 	else {
@@ -56,11 +56,11 @@
 {
 	[super sizeToFit];
 	[self.titleLabel sizeToFit];
-	self.frame = CGRectMake(CGRectGetMinX(self.frame), CGRectGetMinY(self.frame), CGRectGetWidth(self.titleLabel.frame) + 10, CGRectGetHeight(self.frame));
-	UISegmentedControl * _Nullable segmentedControl = (UISegmentedControl * _Nullable)self.superview;
+	self.frame = CGRectMake(0, 0, CGRectGetWidth(self.titleLabel.frame) + 10, CGRectGetHeight(self.frame));
+	UISegmentedControl * _Nullable segmentedControl = (UISegmentedControl * _Nullable)self.segmentedControl;
 	if (segmentedControl) {
 		NSInteger offset = self.badgeAlignmnet == M2DSegmentedControlBadgeAlignmentLeft ? 0 : 1;
-		self.center = CGPointMake((self.index + offset) * CGRectGetWidth(segmentedControl.frame) / segmentedControl.numberOfSegments, 0);
+		self.center = CGPointMake((self.index + offset) * CGRectGetWidth(segmentedControl.frame) / segmentedControl.numberOfSegments + CGRectGetMinX(self.segmentedControl.frame), CGRectGetMinY(self.segmentedControl.frame));
 	}
 	self.titleLabel.center = CGPointMake(CGRectGetWidth(self.frame) / 2.0, CGRectGetHeight(self.frame) / 2.0);
 }
@@ -101,6 +101,7 @@
 	self = [super initWithItems:items];
 	if (self) {
 		self.badgeViews = [NSMutableDictionary new];
+		[self addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
 	}
 	
 	return self;
@@ -153,10 +154,18 @@
 	if (view == nil) {
 		view = [[M2DSegmentedControlBadgeView alloc] initWithIndex:index title:title];
 		self.badgeViews[@(index)] = view;
-		[self addSubview:view];
+		view.segmentedControl = self;
+		[self.superview addSubview:view];
 	}
 	
 	view.title = title;
+}
+
+- (void)valueChanged:(id)sender
+{
+	[self.badgeViews enumerateKeysAndObjectsUsingBlock:^(NSNumber * _Nonnull key, M2DSegmentedControlBadgeView * _Nonnull obj, BOOL * _Nonnull stop) {
+		[self.superview addSubview:obj];
+	}];
 }
 
 @end

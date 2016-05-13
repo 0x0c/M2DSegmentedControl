@@ -23,6 +23,7 @@
 	segmentedControl.frame = CGRectMake(0, 0, 200, CGRectGetHeight(segmentedControl.frame));
 	segmentedControl.center = self.view.center;
 	[self.view addSubview:segmentedControl];
+	[segmentedControl setSelectedSegmentIndex:0];
 	[segmentedControl addBadgeViewWithTitle:@"hoge" index:0];
 }
 
